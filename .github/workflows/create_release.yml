@@ -10,13 +10,64 @@ permissions:
   contents: write
 
 jobs:
-  release:
-    uses: UnknownX7/DalamudPluginRepo/.github/workflows/reusable_create_release.yml@master
-    with:
-      internal_name: NoClippy
-      solution_name: NoClippy
-      build_configuration: Release
-      personal_plugin_repo: echodusk/NoClippyInject
-      personal_plugin_repo_branch: master
-    secrets:
-      PAT: ${{ secrets.PAT }}
+  build:
+    runs-on: windows-2022
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1
+
+      - name: Restore NuGet Packages
+        run: nuget restore NoClippy.sln
+
+      - name: Download Dalamud
+        run: |
+          Invoke-WebRequest -Uri https://goatcorp.github.io/dalamud-distrib/api11/latest.zip -OutFile latest.zip
+          Expand-Archive -Force latest.zip "$env:AppData\XIVLauncher\addon\Hooks\dev\"
+
+      - name: Build
+        run: msbuild NoClippy.sln /p:Configuration=Release
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          path: ./bin/Release/NoClippy/*
+
+  deploy:
+    needs: build
+    runs-on: windows-2022
+    steps:
+      - name: Checkout Plugin Repository
+        uses: actions/checkout@v3
+        with:
+          repository: echodusk/NoClippyInject
+          token: ${{ secrets.PAT }}
+          ref: master
+
+      - name: Download Plugin Build Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: artifact
+          path: plugins/NoClippy
+
+      - name: Commit
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: ./plugins/NoClippy/NoClippy.json
+          author_name: GitHub Action
+          author_email: github-actions[bot]@users.noreply.github.com
+          message: NoClippy ${{ github.ref_name }}
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./plugins/NoClippy/latest.zip
+          draft: false
+          prerelease: false
