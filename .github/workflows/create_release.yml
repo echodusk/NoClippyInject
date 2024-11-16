@@ -13,9 +13,9 @@ jobs:
   release:
     uses: UnknownX7/DalamudPluginRepo/.github/workflows/reusable_create_release.yml@master
     with:
-      internal_name: NoClippyInject
-      solution_name: NoClippyInject
+      internal_name: NoClippy
+      solution_name: NoClippy
       build_configuration: Release
-      personal_plugin_repo: echodusk/NoClippyInject
+      personal_plugin_repo: UnknownX7/DalamudPluginRepo
       personal_plugin_repo_branch: master
     secrets: inherit
