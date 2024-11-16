@@ -1,0 +1,29 @@
+[
+    {
+        "Author": "UnknownX",
+        "Name": "NoClippy 4 Steamhappy",
+        "Punchline": "Reduces the effects of lag on certain aspects of the game, and can show GCD clips",
+        "Description": "Reduces the effects of lag on certain aspects of the game, such as weaving and statuses. Usable as an alternative, or in addition, to XivAlexander.",
+        "Changelog": "",
+        "InternalName": "NoClippy",
+        "AssemblyVersion": "6.6.6",
+        "RepoUrl": "https://github.com/echodusk/NoClippyInject",
+        "ApplicableVersion": "any",
+        "CategoryTags": [
+            "jobs",
+            "utility"
+        ],
+        "DalamudApiLevel": 11,
+        "IconUrl": "",
+        "ImageUrls": [
+            ""
+        ],
+        "DownloadLinkInstall": "https://github.com/echodusk/NoClippyInject/releases/download/v6.6.6/latest.zip",
+        "IsHide": false,
+        "IsTestingExclusive": false,
+        "DownloadLinkTesting": "https://github.com/echodusk/NoClippyInject/releases/download/v6.6.6/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/echodusk/NoClippyInject/releases/download/v6.6.6/latest.zip",
+        "DownloadCount": 64854,
+        "LastUpdate": "1720125044"
+    }
+]
