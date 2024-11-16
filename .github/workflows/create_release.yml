@@ -18,4 +18,5 @@ jobs:
       build_configuration: Release
       personal_plugin_repo: echodusk/NoClippyInject
       personal_plugin_repo_branch: master
-    secrets: inherit
+    secrets:
+      PAT: ${{ secrets.PAT }}
