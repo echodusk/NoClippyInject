@@ -1,0 +1,29 @@
+[
+    {
+        "Author": "UnknownX",
+        "Name": "PixelPerfect 4 Steamhappy",
+        "Punchline": "You already knows",
+        "Description": "Meow.",
+        "Changelog": "",
+        "InternalName": "PixelPerfect",
+        "AssemblyVersion": "9.9.9",
+        "RepoUrl": "https://github.com/Infiziert90/PixelPerfect/",
+        "ApplicableVersion": "any",
+        "CategoryTags": [
+            "jobs",
+            "utility"
+        ],
+        "DalamudApiLevel": 12,
+        "IconUrl": "",
+        "ImageUrls": [
+            ""
+        ],
+        "DownloadLinkInstall": "https://files.catbox.moe/9kgs5s.zip",
+        "IsHide": false,
+        "IsTestingExclusive": false,
+        "DownloadLinkTesting": "https://files.catbox.moe/9kgs5s.zip",
+        "DownloadLinkUpdate": "https://files.catbox.moe/9kgs5s.zip",
+        "DownloadCount": 64854,
+        "LastUpdate": "1720125044"
+    }
+]
